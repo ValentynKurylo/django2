@@ -15,6 +15,7 @@ def new_user(request, name, age, id):
 
 def delete_user(request, id_user):
     for i in user:
-        if i.id == id_user:
-            del i
+        if i['id'] == id_user:
+            d = user.index(i)
+            user.pop(d)
     return render(request, 'user.html', {'user': user})
